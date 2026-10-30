@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little World for Sankuu 🎀 | Happiest Birthday My Pookie!</title>
+    <meta name="description" content="A dreamy, romantic, kawaii birthday wonderland crafted with infinite love for Sankruti (Sankuu), featuring Bubu & Dudu, personal memories, and sweet surprises!">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎀</text></svg>">
+    
+    <!-- Google Fonts: Romantic, elegant & kawaii typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Pacifico&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Floating Clouds and Particles -->
+    <div class="sky-background" aria-hidden="true">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+        <canvas id="sparklesCanvas"></canvas>
+    </div>
+
+    <!-- Floating Audio Control Pill -->
+    <div class="floating-music-bar" id="musicBar">
+        <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Toggle background music" title="Play / Pause Romantic Music">
+            <span class="music-icon" id="musicIcon">🎵</span>
+            <div class="sound-wave-bars" id="soundWaves">
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <span class="music-label" id="musicLabel">Our Song</span>
+        </button>
+    </div>
+
+    <!-- =========================================================================
+         2. WELCOME SCREEN (Full-Screen Opening Experience)
+         ========================================================================= -->
+    <section class="welcome-screen" id="welcomeScreen" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+        <div class="welcome-backdrop"></div>
+        <div class="welcome-card">
+            <div class="welcome-decor-bow">🎀</div>
+            
+            <div class="welcome-bubu-wrapper">
+                <img src="assets/bubu-dudu/bubu-hug.gif" alt="Bubu and Dudu Hugging" class="welcome-bubu-img">
+                <div class="welcome-hearts-orbit">
+                    <span class="orbit-heart h1">💖</span>
+                    <span class="orbit-heart h2">✨</span>
+                    <span class="orbit-heart h3">🌸</span>
+                    <span class="orbit-heart h4">💗</span>
+                </div>
+            </div>
+
+            <h1 class="welcome-title" id="welcomeTitle">Heyyy Sankuuu! 💗</h1>
+            <p class="welcome-subtitle">I made a tiny little world just for you...</p>
+
+            <button class="btn-surprise-open" id="btnOpenSurprise" aria-label="Open your birthday surprise">
+                <span class="btn-ribbon">🎀</span>
+                <span class="btn-text">OPEN YOUR SURPRISE 🎀</span>
+                <span class="btn-sparkle">✨</span>
+            </button>
+            
+            <p class="welcome-hint">Click with sound turned up for the sweetest experience 🎶</p>
+        </div>
+    </section>
+
+    <!-- Main Website Container (Revealed after welcome screen) -->
+    <div class="main-content-wrapper" id="mainContentWrapper">
+
+        <!-- =========================================================================
+             3. BIRTHDAY HERO SECTION
+             ========================================================================= -->
+        <header class="birthday-hero-section" id="heroSection">
+            <!-- Floating Balloons in Background -->
+            <div class="balloon-bundle left-bundle" aria-hidden="true">
+                <div class="balloon b-pink"></div>
+                <div class="balloon b-cream"></div>
+                <div class="balloon b-lavender"></div>
+                <div class="balloon-string"></div>
+            </div>
+            <div class="balloon-bundle right-bundle" aria-hidden="true">
+                <div class="balloon b-lavender"></div>
+                <div class="balloon b-pink"></div>
+                <div class="balloon b-peach"></div>
+                <div class="balloon-string"></div>
+            </div>
+
+            <div class="hero-container">
+                <!-- Floating Mini Bubu & Dudu Flower Giver -->
+                <div class="hero-bubu-badge" title="Dudu giving flowers to Bubu!">
+                    <img src="assets/bubu-dudu/bubu2.gif" alt="Dudu giving a red rose to Bubu wearing a crown" class="hero-bubu-gif">
+                </div>
+
+                <div class="hero-tag-pill">
+                    <span class="sparkle-star">✨</span>
+                    <span>TODAY IS SANKUU'S DAY</span>
+                    <span class="sparkle-star">✨</span>
+                </div>
+
+                <h2 class="hero-subhead">Happiest Birthday, My Pookie! 🎂</h2>
+
+                <div class="name-crown-wrap">
+                    <div class="golden-crown-icon" aria-hidden="true">👑</div>
+                    <h1 class="hero-name-title" id="pookieName">SANSKRUTI</h1>
+                    <div class="name-ribbon-tag">My Cutest Little Universe 🎀</div>
+                </div>
+
+                <div class="hero-message-box">
+                    <p class="hero-romantic-msg">
+                        "To the most precious, radiant, and adorable girl in the universe... Every second with you feels like pure magic. Today is all about celebrating <strong>YOU</strong> and the endless happiness you bring to my life. I love you to the moon and beyond, my Sankuu! 💖✨"
+                    </p>
+                </div>
+
+                <!-- Interactive Love Action Buttons -->
+                <div class="hero-actions-bar">
+                    <button class="action-bubble-btn" id="btnSendKiss" title="Send flying kisses to Sankuu">
+                        <span class="btn-emoji">💋</span>
+                        <span>Send Her Kisses</span>
+                    </button>
+                    <button class="action-bubble-btn" id="btnPopConfetti" title="Shower confetti">
+                        <span class="btn-emoji">🎉</span>
+                        <span>Throw Confetti</span>
+                    </button>
+                    <button class="action-bubble-btn" id="btnLoveMeter" title="Measure infinite love">
+                        <span class="btn-emoji">💖</span>
+                        <span>Love Meter: ∞%</span>
+                    </button>
+                </div>
+
+                <!-- Visual Decorative Bubu Dudu Scene -->
+                <div class="hero-illustration-banner">
+                    <img src="assets/bubu-dudu/bubu.jpg" alt="Bubu and Dudu Birthday Babe" class="hero-sticker-img">
+                </div>
+            </div>
+        </header>
+
+        <!-- =========================================================================
+             4. INTERACTIVE BIRTHDAY CAKE SECTION
+             ========================================================================= -->
+        <section class="cake-section" id="cakeSection">
+            <div class="section-badge">
+                <span>🎂 SWEET WISHES 🎂</span>
+            </div>
+            <h2 class="section-title">Blow The Candles, Make A Wish 🍓</h2>
+            <p class="section-subtitle">A special three-tier strawberry cream cake baked with endless love just for you!</p>
+
+            <div class="cake-stage-container">
+                <!-- 3D Layered CSS Birthday Cake -->
+                <div class="cake-structure" id="cakeStructure">
+                    
+                    <!-- Cake Plate -->
+                    <div class="cake-plate"></div>
+
+                    <!-- Tier 1 (Bottom Tier: Strawberry Chiffon) -->
+                    <div class="cake-tier tier-bottom">
+                        <div class="tier-frosting"></div>
+                        <div class="strawberry-row">
+                            <span class="strawberry-decor s1">🍓</span>
+                            <span class="strawberry-decor s2">🍓</span>
+                            <span class="strawberry-decor s3">🍓</span>
+                            <span class="strawberry-decor s4">🍓</span>
+                            <span class="strawberry-decor s5">🍓</span>
+                        </div>
+                        <div class="cream-ruffles"></div>
+                        <div class="tier-ribbon">🎀</div>
+                    </div>
+
+                    <!-- Tier 2 (Middle Tier: Lavender Vanilla Cream) -->
+                    <div class="cake-tier tier-middle">
+                        <div class="tier-frosting"></div>
+                        <div class="strawberry-row">
+                            <span class="strawberry-decor s1">🍓</span>
+                            <span class="strawberry-decor s2">🍓</span>
+                            <span class="strawberry-decor s3">🍓</span>
+                        </div>
+                        <div class="pearl-frosting"></div>
+                        <div class="sugar-hearts">
+                            <span>💗</span><span>💗</span>
+                        </div>
+                    </div>
+
+                    <!-- Tier 3 (Top Tier: Baby Pink Strawberry Glaze) -->
+                    <div class="cake-tier tier-top">
+                        <div class="tier-frosting"></div>
+                        <div class="cream-dollops"></div>
+                        <div class="cake-centerpiece">
+                            <span class="strawberry-center">🍓</span>
+                        </div>
+
+                        <!-- 3 Glowing Candles -->
+                        <div class="candles-wrapper" id="candlesWrapper">
+                            <div class="candle-item c-left" id="candle1">
+                                <div class="candle-flame" id="flame1"></div>
+                                <div class="candle-smoke" id="smoke1"></div>
+                                <div class="candle-wick"></div>
+                                <div class="candle-stick stripe-pink"></div>
+                            </div>
+                            <div class="candle-item c-center" id="candle2">
+                                <div class="candle-flame" id="flame2"></div>
+                                <div class="candle-smoke" id="smoke2"></div>
+                                <div class="candle-wick"></div>
+                                <div class="candle-stick stripe-gold"></div>
+                            </div>
+                            <div class="candle-item c-right" id="candle3">
+                                <div class="candle-flame" id="flame3"></div>
+                                <div class="candle-smoke" id="smoke3"></div>
+                                <div class="candle-wick"></div>
+                                <div class="candle-stick stripe-lavender"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bubu-Dudu Cheering next to the cake -->
+                <div class="cake-bubu-cheer" id="cakeBubuCheer">
+                    <img src="assets/bubu-dudu/bubu-birthday-cake.gif" alt="Bubu holding birthday cake" class="bubu-cake-companion">
+                </div>
+            </div>
+
+            <!-- Cake Controls -->
+            <div class="cake-controls-wrap">
+                <button class="btn-wish-action" id="btnMakeWish">
+                    <span class="wish-sparkle">✨</span>
+                    <span class="wish-text">MAKE A WISH, POOKIE! ✨</span>
+                    <span class="wish-sparkle">✨</span>
+                </button>
+
+                <button class="btn-relight-action" id="btnRelight" style="display: none;">
+                    <span>🕯️ Relight Candles ✨</span>
+                </button>
+            </div>
+
+            <!-- Congratulatory Wish Popup / Card -->
+            <div class="wish-success-card" id="wishSuccessCard" style="display: none;">
+                <div class="wish-card-glow"></div>
+                <div class="wish-card-body">
+                    <div class="wish-bubu-avatar">
+                        <img src="assets/bubu-dudu/bubu-kiss.gif" alt="Bubu kissing Dudu" class="wish-bubu-gif">
+                    </div>
+                    <h3 class="wish-success-title">Your Wish Is Floating To The Stars! 🌟</h3>
+                    <p class="wish-success-quote">"May every little wish of yours come true, my love! 💗"</p>
+                    <p class="wish-success-sub">You deserve endless happiness, boundless warmth, and all the love in this universe! 🎀</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             5. LOVE LETTER SECTION
+             ========================================================================= -->
+        <section class="letter-section" id="letterSection">
+            <div class="section-badge">
+                <span>💌 FROM MY HEART 💌</span>
+            </div>
+            <h2 class="section-title">A Little Something From My Heart 💌</h2>
+            <p class="section-subtitle">Words written especially for you, sealed with endless love and a little wax seal...</p>
+
+            <div class="envelope-outer-stage">
+                <!-- 3D Interactive Envelope -->
+                <div class="envelope-wrapper" id="envelopeWrapper">
+                    <div class="envelope" id="envelope">
+                        <div class="envelope-back"></div>
+                        <div class="envelope-paper-preview" id="envelopePaperPreview">
+                            <span class="mini-love-stamp">💌</span>
+                            <span class="mini-to-text">For Sankuu</span>
+                        </div>
+                        <div class="envelope-front-pocket"></div>
+                        <div class="envelope-flap" id="envelopeFlap">
+                            <div class="envelope-seal" id="envelopeSeal">
+                                <span class="seal-heart">💖</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="letter-action-wrap">
+                    <button class="btn-open-letter" id="btnOpenLetter">
+                        <span class="letter-icon">💌</span>
+                        <span class="letter-btn-text">OPEN YOUR LETTER</span>
+                        <span class="letter-sparkle">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Unfolded Letter Card Modal / Expandable Sheet -->
+            <div class="unfolded-letter-modal" id="unfoldedLetterModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="letterModalTitle">
+                <div class="letter-backdrop" id="letterBackdrop"></div>
+                <div class="parchment-sheet">
+                    <button class="letter-close-btn" id="btnCloseLetter" aria-label="Close love letter">✕</button>
+                    
+                    <div class="parchment-header">
+                        <div class="parchment-bow">🎀</div>
+                        <h3 class="parchment-title" id="letterModalTitle">To My Prettiest Sankuu 🌸</h3>
+                        <p class="parchment-date" id="letterModalDate">Your Special Day ✨</p>
+                    </div>
+
+                    <div class="parchment-content" id="letterModalBody">
+                        <!-- Dynamic letter content injected from letter.js -->
+                    </div>
+
+                    <div class="parchment-footer">
+                        <p class="parchment-closing" id="letterModalClosing">Forever & Always Yours,</p>
+                        <p class="parchment-signature" id="letterModalSignature">With all my love ❤️</p>
+                        <div class="parchment-bubu-stamp">
+                            <img src="assets/bubu-dudu/bubu-cuddle.gif" alt="Bubu and Dudu Cuddle" class="letter-stamp-gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             6. OUR PHOTO GALLERY (Heart-Shaped Collage)
+             ========================================================================= -->
+        <section class="gallery-section" id="gallerySection">
+            <div class="section-badge">
+                <span>❤️ MEMORIES WITH YOU ❤️</span>
+            </div>
+            <h2 class="section-title">Our Little World of Memories ❤️</h2>
+            <p class="section-subtitle">Every snapshot holds a heartbeat, every picture whispers how much you mean to me ✨</p>
+
+            <!-- Heart-Shaped Collage Stage -->
+            <div class="heart-gallery-container">
+                <!-- SVG Ambient Heart Silhouette Guide & Fairy Lights -->
+                <div class="heart-contour-glow" aria-hidden="true">
+                    <svg viewBox="0 0 600 550" class="heart-svg-path">
+                        <path d="M 300,160 
+                                 C 300,70  200,40  120,100 
+                                 C 40,160  40,280  160,380 
+                                 C 220,430 300,500 300,500 
+                                 C 300,500 380,430 440,380 
+                                 C 560,280 560,160 480,100 
+                                 C 400,40  300,70  300,160 Z" 
+                              fill="none" 
+                              stroke="url(#heartGrad)" 
+                              stroke-width="3" 
+                              stroke-dasharray="8 6" 
+                              class="pulsing-heart-track"/>
+                        <defs>
+                            <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff9ebb" stop-opacity="0.8"/>
+                                <stop offset="50%" stop-color="#ffb6c1" stop-opacity="0.6"/>
+                                <stop offset="100%" stop-color="#d8b4e2" stop-opacity="0.8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Bubu and Dudu Accents Guarding The Heart Collage -->
+                <div class="gallery-mascot mascot-left" title="Holding your paw forever!">
+                    <img src="assets/bubu-dudu/bubu-holding-hands.gif" alt="Bubu and Dudu Holding Hands Forever" class="mascot-img">
+                </div>
+                <div class="gallery-mascot mascot-right" title="Cupid Bubu sending love!">
+                    <img src="assets/bubu-dudu/bubu-cupid-heart.gif" alt="Cupid Bubu with angel wings" class="mascot-img">
+                </div>
+
+                <!-- Heart Collage Grid / Layout -->
+                <div class="heart-collage-grid" id="heartCollageGrid">
+                    <!-- Photo items rendered and mapped to heart coordinates -->
+                    <!-- Photo 1: Baby Sankuu (Top Left Lobe) -->
+                    <div class="polaroid-card pos-top-left" data-index="0" tabindex="0" role="button" aria-label="Open photo: My Little Baby Sankuu">
+                        <div class="washi-tape tape-pink"></div>
+                        <div class="polaroid-img-frame">
+                            <img src="assets/photos/photo1.jpg" alt="Baby Sankruti standing by the door" class="polaroid-thumb" loading="lazy">
+                        </div>
+                        <div class="polaroid-caption">
+                            <span class="caption-heart">🌸</span>
+                            <span class="caption-text">Where Your Magic Began</span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 2: Sankuu in green floral kurta (Top Right Lobe) -->
+                    <div class="polaroid-card pos-top-right" data-index="1" tabindex="0" role="button" aria-label="Open photo: That Radiant Smile">
+                        <div class="washi-tape tape-lavender"></div>
+                        <div class="polaroid-img-frame">
+                            <img src="assets/photos/photo2.jpg" alt="Sankruti smiling softly in green kurta" class="polaroid-thumb" loading="lazy">
+                        </div>
+                        <div class="polaroid-caption">
+                            <span class="caption-heart">✨</span>
+                            <span class="caption-text">The Smile That Stole My Heart</span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 4: Couple photo together (Center Core of Heart) -->
+                    <div class="polaroid-card pos-center-core" data-index="3" tabindex="0" role="button" aria-label="Open photo: You and Me in the Sunshine">
+                        <div class="heart-badge-pin">💖</div>
+                        <div class="washi-tape tape-gold"></div>
+                        <div class="polaroid-img-frame">
+                            <img src="assets/photos/photo4.jpg" alt="Sankruti and boyfriend smiling together in the sun" class="polaroid-thumb" loading="lazy">
+                        </div>
+                        <div class="polaroid-caption">
+                            <span class="caption-heart">☀️</span>
+                            <span class="caption-text">My Favorite Place Is With You</span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 3: Candid selfie in red (Bottom Left Wing) -->
+                    <div class="polaroid-card pos-bottom-left" data-index="2" tabindex="0" role="button" aria-label="Open photo: Sweetest Pookie Ever">
+                        <div class="washi-tape tape-rose"></div>
+                        <div class="polaroid-img-frame">
+                            <img src="assets/photos/photo3.jpg" alt="Sankruti smiling selfie in red outfit" class="polaroid-thumb" loading="lazy">
+                        </div>
+                        <div class="polaroid-caption">
+                            <span class="caption-heart">🎀</span>
+                            <span class="caption-text">Pure Sweetness & Sparkle</span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 5: Holding hands in the sunlight (Bottom Tip of Heart) -->
+                    <div class="polaroid-card pos-bottom-tip" data-index="4" tabindex="0" role="button" aria-label="Open photo: Holding Hands Forever">
+                        <div class="washi-tape tape-cream"></div>
+                        <div class="polaroid-img-frame">
+                            <img src="assets/photos/photo5.jpg" alt="Hands intertwined together in the sunlight" class="polaroid-thumb" loading="lazy">
+                        </div>
+                        <div class="polaroid-caption">
+                            <span class="caption-heart">💍</span>
+                            <span class="caption-text">Holding Your Hand Forever</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="gallery-hint">Tap any photo to view in high resolution with sweet memories 📸</p>
+            </div>
+
+            <!-- Full-Screen Lightbox Modal -->
+            <div class="lightbox-modal" id="lightboxModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+                <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+                <div class="lightbox-floating-hearts" id="lightboxHearts"></div>
+                
+                <div class="lightbox-container">
+                    <button class="lightbox-btn btn-close" id="btnLightboxClose" aria-label="Close Lightbox">✕</button>
+                    
+                    <button class="lightbox-btn btn-prev" id="btnLightboxPrev" aria-label="Previous Photo">
+                        <span>‹</span>
+                    </button>
+                    
+                    <div class="lightbox-image-box">
+                        <img src="" alt="Full size memory" id="lightboxImg" class="lightbox-img">
+                        <div class="lightbox-caption-bar">
+                            <span class="lightbox-counter" id="lightboxCounter">1 / 5</span>
+                            <p class="lightbox-caption" id="lightboxCaption">My Favorite Place Is With You</p>
+                        </div>
+                    </div>
+
+                    <button class="lightbox-btn btn-next" id="btnLightboxNext" aria-label="Next Photo">
+                        <span>›</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             7. MUSIC SECTION ("Our Little Song 🎶")
+             ========================================================================= -->
+        <section class="music-section" id="musicSection">
+            <div class="section-badge">
+                <span>🎶 OUR MELODY 🎶</span>
+            </div>
+            <h2 class="section-title">Our Little Song 🎶</h2>
+            <p class="section-subtitle">Every beat echoes how deeply I adore you... Press play and let the sweetness surround you 🌸</p>
+
+            <div class="music-player-card">
+                <!-- Vinyl Record Showcase -->
+                <div class="vinyl-display-wrapper">
+                    <div class="vinyl-sleeve">
+                        <div class="vinyl-disc" id="vinylDisc">
+                            <div class="vinyl-grooves"></div>
+                            <div class="vinyl-center-label">
+                                <img src="assets/photos/photo4.jpg" alt="Us on record label" class="vinyl-label-img">
+                                <div class="vinyl-hole"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tonearm-stick" id="tonearmStick"></div>
+                </div>
+
+                <!-- Player Details & Controls -->
+                <div class="player-controls-wrapper">
+                    <div class="song-header">
+                        <span class="song-pill">NOW PLAYING 🎀</span>
+                        <h3 class="song-title" id="songTitle">Sankuu's Music Box Melody</h3>
+                        <p class="song-artist" id="songArtist">A Romantic Lullaby For The Sweetest Girl</p>
+                    </div>
+
+                    <!-- Sound Wave Visualizer Animation -->
+                    <div class="sound-visualizer" id="soundVisualizer">
+                        <span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span>
+                        <span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span>
+                        <span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span>
+                    </div>
+
+                    <!-- Progress Bar & Timers -->
+                    <div class="progress-container">
+                        <span class="time-stamp" id="currentTime">0:00</span>
+                        <div class="progress-track" id="progressTrack" role="slider" aria-label="Song progress" tabindex="0">
+                            <div class="progress-fill" id="progressFill"></div>
+                            <div class="progress-scrubber" id="progressScrubber"></div>
+                        </div>
+                        <span class="time-stamp" id="totalDuration">0:32</span>
+                    </div>
+
+                    <!-- Buttons Row -->
+                    <div class="player-buttons-row">
+                        <button class="player-btn btn-rewind" id="btnRewind" title="Rewind 5s">↺</button>
+                        <button class="player-btn btn-main-play" id="btnMainPlay" aria-label="Play / Pause">
+                            <span id="playIcon">▶</span>
+                        </button>
+                        <button class="player-btn btn-forward" id="btnForward" title="Forward 5s">↻</button>
+                    </div>
+
+                    <!-- Bubu & Dudu Swaying to Music -->
+                    <div class="music-bubu-companions">
+                        <div class="swaying-bubu left-sway">
+                            <img src="assets/bubu-dudu/bubu-love-kiss.gif" alt="Bubu kissing Dudu" class="sway-gif">
+                            <span class="note-balloon n1">♪</span>
+                        </div>
+                        <div class="swaying-bubu right-sway">
+                            <img src="assets/bubu-dudu/bubu-cuddle.gif" alt="Bubu and Dudu Cuddling" class="sway-gif">
+                            <span class="note-balloon n2">♫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Native Audio for user's own MP3 or generated song -->
+                <audio id="nativeAudio" preload="auto" loop>
+                    <source src="assets/music/our-song.mp3" type="audio/mpeg">
+                    <source src="assets/music/our-song.wav" type="audio/wav">
+                </audio>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             8. BUBU & DUDU SWEET SCENES SHOWCASE
+             ========================================================================= -->
+        <section class="bubu-scenes-section" id="bubuScenesSection">
+            <div class="section-badge">
+                <span>🎀 BUBU & DUDU'S LOVE DIARY 🎀</span>
+            </div>
+            <h2 class="section-title">Us, Captured In Cute Moments 🧸</h2>
+            <p class="section-subtitle">Because every little thing about us looks like Bubu & Dudu's sweet love story...</p>
+
+            <div class="scenes-grid">
+                <!-- Scene 1: Hugging Each Other -->
+                <div class="scene-card">
+                    <div class="scene-img-box">
+                        <img src="assets/bubu-dudu/bubu-hug.gif" alt="Bubu and Dudu hugging tightly" class="scene-gif">
+                    </div>
+                    <div class="scene-details">
+                        <span class="scene-badge">Scene 1 🌸</span>
+                        <h4 class="scene-title">Warmest Bear Hugs</h4>
+                        <p class="scene-desc">Wrapping my arms around you and melting away all worries.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 2: Holding Hands -->
+                <div class="scene-card">
+                    <div class="scene-img-box">
+                        <img src="assets/bubu-dudu/bubu-holding-hands.gif" alt="Bubu and Dudu holding paws with hearts" class="scene-gif">
+                    </div>
+                    <div class="scene-details">
+                        <span class="scene-badge">Scene 2 💍</span>
+                        <h4 class="scene-title">Holding Hands Forever</h4>
+                        <p class="scene-desc">Paws intertwined, heartbeats aligned, forever by your side.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 3: Giving Each Other Flowers -->
+                <div class="scene-card">
+                    <div class="scene-img-box">
+                        <img src="assets/bubu-dudu/bubu2.gif" alt="Dudu giving a red rose to Bubu wearing a crown" class="scene-gif">
+                    </div>
+                    <div class="scene-details">
+                        <span class="scene-badge">Scene 3 🌹</span>
+                        <h4 class="scene-title">Flowers For My Queen</h4>
+                        <p class="scene-desc">A fresh rose for the prettiest flower in the garden: you!</p>
+                    </div>
+                </div>
+
+                <!-- Scene 4: Sitting Together Inside A Heart -->
+                <div class="scene-card heart-glow-card">
+                    <div class="scene-img-box heart-framed-box">
+                        <div class="mini-heart-frame">
+                            <img src="assets/bubu-dudu/bubu-cuddle.gif" alt="Bubu and Dudu sitting inside heart" class="scene-gif">
+                        </div>
+                    </div>
+                    <div class="scene-details">
+                        <span class="scene-badge">Scene 4 💖</span>
+                        <h4 class="scene-title">Inside My Whole Heart</h4>
+                        <p class="scene-desc">Nestled safe and snug where you belong, right in my heart.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 5: Celebrating Birthday With Cake -->
+                <div class="scene-card">
+                    <div class="scene-img-box">
+                        <img src="assets/bubu-dudu/bubu-birthday-cake.gif" alt="Bubu celebrating with birthday cake" class="scene-gif">
+                    </div>
+                    <div class="scene-details">
+                        <span class="scene-badge">Scene 5 🎂</span>
+                        <h4 class="scene-title">Birthday Celebration</h4>
+                        <p class="scene-desc">Strawberries, frosting, candles, and endless wishes for Sankuu!</p>
+                    </div>
+                </div>
+
+                <!-- Scene 6: Sending Flying Kisses -->
+                <div class="scene-card">
+                    <div class="scene-img-box">
+                        <img src="assets/bubu-dudu/bubu-kiss.gif" alt="Bubu sending flying kisses" class="scene-gif">
+                    </div>
+                    <div class="scene-details">
+                        <span class="scene-badge">Scene 6 💋</span>
+                        <h4 class="scene-title">Flying Kisses & Hearts</h4>
+                        <p class="scene-desc">A million tender kisses sent across the sky straight to your cheeks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             9. SWEET ROMANTIC FOOTER
+             ========================================================================= -->
+        <footer class="romantic-footer">
+            <div class="footer-decor-bow">🎀</div>
+            <h3 class="footer-heading">Happiest Birthday, Sankruti! 💖</h3>
+            <p class="footer-msg">Made with every bit of my heart, just to see your beautiful smile today.</p>
+            <div class="footer-bubu-row">
+                <img src="assets/bubu-dudu/bubu-cupid-heart.gif" alt="Cupid Bubu" class="footer-bubu-avatar">
+            </div>
+            <p class="footer-copyright">Forever & Always Your Biggest Fan 🌸 ✨</p>
+
+            <button class="btn-back-to-top" id="btnBackToTop" title="Back to top">
+                <span>Top 💖</span>
+            </button>
+        </footer>
+
+    </div><!-- /main-content-wrapper -->
+
+    <!-- Load the editable letter script first -->
+    <script src="letter.js"></script>
+    <!-- Main Interactive Script -->
+    <script src="app.js"></script>
+</body>
+</html>
